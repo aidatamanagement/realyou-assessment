@@ -197,8 +197,8 @@
     section.bg-navy .deliverable-card-label { color: rgba(245,240,232,0.45); }
     section.bg-navy .deliverable-card-title { color: #F5F0E8; }
     section.bg-navy .deliverable-card-desc { color: rgba(245,240,232,0.7); }
-    section.bg-navy .deliverable-link { color: #FFB162; }
-    section.bg-navy .deliverable-link:hover { color: #FFC880; }
+    section.bg-navy .deliverable-link { background: #FFB162; color: var(--accent-navy); }
+    section.bg-navy .deliverable-link:hover { background: #FFC880; color: var(--accent-navy); }
     section.bg-navy .scope-col { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
     section.bg-navy .scope-col-header.included { background: rgba(255,177,98,0.12); color: #FFB162; }
     section.bg-navy .scope-col-header.excluded { background: rgba(255,255,255,0.05); color: rgba(245,240,232,0.5); }
@@ -354,21 +354,11 @@
       color: var(--text-secondary);
       line-height: 1.65;
       flex: 1;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
     }
-    .deliverable-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      margin-top: 0.25rem;
-      transition: var(--transition);
-    }
-    .deliverable-link:hover { color: var(--accent-light); gap: 0.6rem; }
-    .deliverable-link svg { flex-shrink: 0; }
+    section.bg-navy .deliverable-card-desc { border-bottom-color: rgba(255,255,255,0.1); }
+    /* deliverable-link base styles moved to button style section below */
 
     /* ── IP TRANSFER LIST ── */
     .transfer-grid {
@@ -697,6 +687,130 @@
       transform: translateY(0);
     }
 
+    /* ── DID GRID (What We Did cards) ── */
+    .did-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+      max-width: 720px;
+    }
+    @media (max-width: 600px) {
+      .did-grid { grid-template-columns: 1fr; }
+    }
+    .did-card {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.5rem 1.25rem;
+      transition: var(--transition);
+    }
+    .did-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: rgba(163,81,57,0.25);
+    }
+    .did-card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+      line-height: 1;
+    }
+    .did-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .did-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── DELIVERABLE LINK BUTTON STYLE ── */
+    .deliverable-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      margin-top: 0.75rem;
+      padding: 0.55rem 1.25rem;
+      background: #FFB162;
+      border-radius: var(--radius-pill);
+      transition: var(--transition);
+    }
+    .deliverable-link:hover {
+      background: #FFC880;
+      color: var(--accent-navy);
+      gap: 0.65rem;
+      box-shadow: 0 4px 14px rgba(255,177,98,0.35);
+    }
+    .deliverable-link svg { flex-shrink: 0; }
+
+    /* ── PROJECT OVERVIEW GRID ── */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 3rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 700px) {
+      .overview-grid { grid-template-columns: 1fr; }
+    }
+    .overview-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .overview-subhead {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFB162;
+      margin-bottom: 0.1rem;
+    }
+    .overview-block p {
+      font-size: 0.95rem;
+      color: rgba(245,240,232,0.78);
+      line-height: 1.75;
+    }
+    .overview-block p strong { color: #F5F0E8; }
+    .story-beats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .story-beat {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 0.92rem;
+      color: rgba(245,240,232,0.78);
+      line-height: 1.6;
+    }
+    .story-beat strong { color: #F5F0E8; }
+    .beat-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255,177,98,0.18);
+      border: 1px solid rgba(255,177,98,0.35);
+      color: #FFB162;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1em;
+    }
+
     /* ── DECORATIVE DIVIDER ── */
     .art-divider {
       display: flex;
@@ -756,12 +870,28 @@
       <div class="section-body">
         <p>Over the past 30 days, AIDM conducted a thorough assessment of the Real You platform — where it stands, what exists, and what it takes to build it right.</p>
       </div>
-      <ul class="bullet-list" style="margin-top:1.5rem; max-width:680px;">
-        <li><strong>IP transfer</strong> from the previous development team — accounts, credentials, code, and infrastructure</li>
-        <li><strong>Brand creation</strong> — visual identity, voice, and positioning for Real You as a consumer-facing product</li>
-        <li><strong>Digital presence planning</strong> — website prototype, content strategy, and go-to-market framework</li>
-        <li><strong>Technical scoping</strong> — a full product requirements document mapping every feature, pipeline stage, and integration</li>
-      </ul>
+      <div class="did-grid">
+        <div class="did-card">
+          <div class="did-card-icon">&#x1F504;</div>
+          <div class="did-card-title">IP transfer</div>
+          <div class="did-card-desc">From the previous development team — accounts, credentials, code, and infrastructure</div>
+        </div>
+        <div class="did-card">
+          <div class="did-card-icon">&#x1F3A8;</div>
+          <div class="did-card-title">Brand creation</div>
+          <div class="did-card-desc">Visual identity, voice, and positioning for Real You as a consumer-facing product</div>
+        </div>
+        <div class="did-card">
+          <div class="did-card-icon">&#x1F310;</div>
+          <div class="did-card-title">Digital presence planning</div>
+          <div class="did-card-desc">Website prototype, content strategy, and go-to-market framework</div>
+        </div>
+        <div class="did-card">
+          <div class="did-card-icon">&#x1F4CB;</div>
+          <div class="did-card-title">Technical scoping</div>
+          <div class="did-card-desc">A full product requirements document mapping every feature, pipeline stage, and integration</div>
+        </div>
+      </div>
       <p style="margin-top:1.5rem; font-size:0.95rem; color:var(--text-secondary); max-width:680px;">The assessment phase is complete. What follows is a summary of findings, deliverables, and the path forward.</p>
     </div>
   </section>
@@ -845,15 +975,54 @@
     <div class="section-inner fade-in">
       <div class="section-label">Project Overview</div>
       <h2 class="section-title">Here Is What We Are <em>Actually Building</em></h2>
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items:start;" class="two-col-body">
-        <div class="section-body">
-          <p>Real You is a technically ambitious platform. The assessment confirmed that, and we want you to see the full picture clearly.</p>
-          <p>At its core, Real You runs a <strong>9-stage AI pipeline</strong> that guides users through a <strong>63-day neurocycle program</strong>. Each user receives personalized AI-generated video content. The platform includes a gifting economy, a community tier system, and a content engine that adapts to individual progress.</p>
+
+      <div class="overview-grid">
+
+        <div class="overview-block">
+          <h3 class="overview-subhead">The Platform</h3>
+          <p>Real You is an AI-powered identity transformation platform. It runs a 9-stage AI pipeline that guides each user through a 63-day neurocycle program, delivering personalized AI-generated video content mapped to five Go-Giver principles. The platform includes a community tier system, a gifting economy built on internal currency, and a content engine that adapts to individual progress.</p>
+          <p>It is technically ambitious. The assessment confirmed that. But the technical architecture is not the marketing. The marketing is one sentence: <strong>see who you were created to be.</strong> Everything else is product depth that users discover after they walk through the door.</p>
         </div>
-        <div class="section-body">
-          <p>One thing the assessment made clear: <strong>build and go-to-market must run in parallel.</strong></p>
-          <p>A great product with no audience is just a demo. That is why the content strategy and the technical build are designed to move at the same time — so Real You launches to people who are already waiting for it.</p>
+
+        <div class="overview-block">
+          <h3 class="overview-subhead">The One Problem</h3>
+          <p>The most effective consumer marketing solves one problem for one person. Not ten problems. Not a system of interconnected solutions. One.</p>
+          <p>For Real You at launch, that problem is identity loss. The burnout. The gap between who you feel you are and who you know you could be. That feeling of being stuck inside roles, expectations, and performance that stopped fitting a long time ago.</p>
+          <p>That problem is universal, emotionally immediate, and unsolved by everything the self-help industry has already tried to sell this audience. Every piece of marketing content traces back to it.</p>
         </div>
+
+        <div class="overview-block">
+          <h3 class="overview-subhead">Storytelling Is the Only Strategy</h3>
+          <p>People do not pay for a feature set. They pay because someone they trust said something happened to them, and they want that too.</p>
+          <p>Feature comparisons, tier explanations, product walkthroughs - these create friction before the experience can create belief. Real You does not need to be explained. It needs to be felt.</p>
+          <p>The most valuable marketing asset at launch is not the website, the brand guide, or the content calendar. It is 10 real people who experienced the video and are willing to say, in their own words, what happened. The Ohio 100 launch exists to build that story bank before the full content engine turns on.</p>
+        </div>
+
+        <div class="overview-block">
+          <h3 class="overview-subhead">The Four-Beat Story</h3>
+          <p>Every piece of content maps to one of four beats. This is the narrative structure that runs through everything Real You publishes.</p>
+          <div class="story-beats">
+            <div class="story-beat"><span class="beat-num">1</span><div><strong>Struggle.</strong> The feeling of being lost in performance, expectation, or roles that don't fit.</div></div>
+            <div class="story-beat"><span class="beat-num">2</span><div><strong>Catalyst.</strong> Someone gave me something. A gift, not a pitch.</div></div>
+            <div class="story-beat"><span class="beat-num">3</span><div><strong>Transformation.</strong> I saw my future self in a 3-minute video. Something shifted.</div></div>
+            <div class="story-beat"><span class="beat-num">4</span><div><strong>Invitation.</strong> I want to give this to someone I care about.</div></div>
+          </div>
+        </div>
+
+        <div class="overview-block">
+          <h3 class="overview-subhead">This Is Not Self-Help</h3>
+          <p>The self-help industry has a well-documented failure rate. Most people who start a program don't finish. Most people who finish don't sustain the change. Real You is positioned against that reality, not alongside it.</p>
+          <p>The difference is structural. Self-help asks for effort. Real You gives an experience. Self-help says you need to improve. Real You says it's already there - you haven't built it, you've buried it.</p>
+          <p>That positioning matters because the audience knows the pattern. They have bought the book, started the course, abandoned the app. They are not looking for another program that asks them to fix themselves. They are looking for something that shows them what is already true.</p>
+        </div>
+
+        <div class="overview-block">
+          <h3 class="overview-subhead">Build and Go-to-Market Run in Parallel</h3>
+          <p>A great product with no audience is just a demo. That is why the technical build and the content strategy are designed to move at the same time.</p>
+          <p>While the platform is being developed, the content engine is warming up the audience. While the AI pipeline is being tested, the story bank is being built through the Ohio 100 launch. Real You does not launch into silence. It launches to people who are already waiting.</p>
+          <p>The phasing is intentional. Phase 1 leads with the core experience: one person, one photo, one video, one transformation. Phase 2 introduces the community gifting mechanic. Phase 3 and beyond expand into health, education, abundance, and business categories. They don't need to understand the full architecture to take the first step. They just need to feel something and want it for someone they care about.</p>
+        </div>
+
       </div>
     </div>
   </section>
