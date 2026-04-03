@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RealYou — Assessment Findings & Deliverables</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:             #F5F0E8;
+      --surface:        #EDE8DF;
+      --surface-raised: #E6DFD3;
+      --surface-hover:  #DDD5C6;
+
+      --accent:         #A35139;
+      --accent-light:   #C4694E;
+      --accent-gold:    #C8922A;
+      --accent-navy:    #2C3B4E;
+      --accent-cream:   #C9C1B2;
+
+      --text-primary:   #1C1410;
+      --text-secondary: #4A3F35;
+      --text-muted:     #7A6E64;
+
+      --border:         rgba(28, 20, 16, 0.1);
+      --border-bright:  rgba(28, 20, 16, 0.18);
+
+      --gradient:       linear-gradient(135deg, #C8922A 0%, #A35139 45%, #2C3B4E 100%);
+      --gradient-warm:  linear-gradient(135deg, #F5E6C8 0%, #EDD5C0 50%, #D4C4B0 100%);
+
+      --font:           'Geist', system-ui, sans-serif;
+      --font-serif:     'Cormorant Garamond', Georgia, serif;
+
+      --radius:         14px;
+      --radius-sm:      8px;
+      --radius-pill:    100px;
+
+      --shadow-sm:      0 1px 4px rgba(28,20,16,0.08), 0 0 0 1px rgba(28,20,16,0.05);
+      --shadow-md:      0 4px 20px rgba(28,20,16,0.10), 0 0 0 1px rgba(28,20,16,0.06);
+      --shadow-hover:   0 8px 32px rgba(28,20,16,0.15), 0 0 0 1px rgba(163,81,57,0.2);
+
+      --transition:     0.2s ease;
+
+      --max-w:          1100px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-meta {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 2rem 80px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: var(--font);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--text-primary);
+      max-width: 700px;
+    }
+    .hero h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .hero-meta {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero-meta-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hero-meta-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .hero-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--border-bright);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 80px 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 2px;
+      background: var(--accent-gold);
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .section-body {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.75;
+    }
+    .section-body p + p { margin-top: 1rem; }
+    .section-body strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── TWO-COL LAYOUT ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ── BULLET LIST ── */
+    .bullet-list {
+      list-style: none;
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .bullet-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .bullet-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 0.55em;
+    }
+    .bullet-list li strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ── DELIVERABLE CARDS ── */
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .deliverable-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .deliverable-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .deliverable-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+      border-color: rgba(163,81,57,0.25);
+    }
+    .deliverable-card-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .deliverable-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+    .deliverable-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .deliverable-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      margin-top: 0.25rem;
+      transition: var(--transition);
+    }
+    .deliverable-link:hover { color: var(--accent-light); gap: 0.6rem; }
+    .deliverable-link svg { flex-shrink: 0; }
+
+    /* ── IP TRANSFER LIST ── */
+    .transfer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .transfer-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .transfer-item::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* ── STAT CALLOUT ── */
+    .callout-box {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .callout-box strong { color: var(--text-primary); }
+
+    /* ── SCOPE TABLE ── */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 640px) {
+      .scope-grid { grid-template-columns: 1fr; }
+    }
+    .scope-col {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .scope-col-header {
+      padding: 1rem 1.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .scope-col-header.included {
+      background: rgba(163, 81, 57, 0.07);
+      color: var(--accent);
+    }
+    .scope-col-header.excluded {
+      background: rgba(44, 59, 78, 0.07);
+      color: var(--accent-navy);
+    }
+    .scope-col-list {
+      list-style: none;
+      padding: 1rem 0;
+    }
+    .scope-col-list li {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .scope-col-list li:last-child { border-bottom: none; }
+    .scope-col-list.included li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .scope-col-list.excluded li::before {
+      content: '–';
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .scope-note {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ── DECISIONS ── */
+    .decision-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      .decision-cards { grid-template-columns: 1fr; }
+    }
+    .decision-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .decision-number {
+      font-size: 2.5rem;
+      font-family: var(--font-serif);
+      font-weight: 400;
+      color: var(--accent-cream);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .decision-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .decision-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .decision-highlight {
+      display: inline-block;
+      background: rgba(163, 81, 57, 0.1);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin-top: 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .roadmap-phase {
+      background: var(--surface);
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .roadmap-phase:last-child { border-bottom: none; }
+    .roadmap-phase:hover { background: var(--surface-raised); }
+    @media (max-width: 600px) {
+      .roadmap-phase { grid-template-columns: 1fr; gap: 0.75rem; }
+    }
+    .roadmap-period {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .roadmap-phase-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .roadmap-phase-items {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .roadmap-target {
+      background: var(--accent-navy);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .roadmap-target span {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245, 242, 238, 0.7);
+    }
+    .roadmap-target strong {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #F5F2EE;
+    }
+
+    /* ── EXPANSION MODULES ── */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .module-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+    .module-card:hover {
+      border-color: rgba(163,81,57,0.3);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+    .module-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    .module-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .module-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── CLOSING ── */
+    .closing {
+      padding: 80px 2rem 100px;
+      background: var(--accent-navy);
+    }
+    .closing-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .closing .eyebrow {
+      color: rgba(245, 240, 232, 0.5);
+    }
+    .closing .eyebrow::before { background: rgba(245, 240, 232, 0.5); }
+    .closing h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: #F5F0E8;
+      max-width: 580px;
+      margin-bottom: 1.5rem;
+    }
+    .closing h2 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: #FFB162;
+    }
+    .closing p {
+      font-size: 1rem;
+      color: rgba(245, 240, 232, 0.75);
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .closing-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #FFB162;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,177,98,0.35);
+      padding-bottom: 2px;
+      transition: var(--transition);
+    }
+    .closing-email:hover {
+      border-color: #FFB162;
+      color: #FFC880;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 2rem;
+      background: #1C1A18;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── DECORATIVE DIVIDER ── */
+    .art-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 0 2rem;
+      max-width: 200px;
+    }
+    .art-divider-line { flex: 1; height: 1px; background: var(--border-bright); }
+    .art-divider-diamond {
+      width: 6px; height: 6px;
+      background: var(--accent-gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">RealYou</a>
+      <span class="nav-meta">Assessment Findings &amp; Deliverables &nbsp;·&nbsp; April 2026</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero fade-in">
+    <div class="eyebrow">30-Day Assessment</div>
+    <h1>RealYou:<br><em>Findings &amp; Deliverables</em></h1>
+    <p class="hero-sub">A thorough assessment of the Real You platform — what we found, what we built, and what comes next.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Prepared by</span>
+        <span class="hero-meta-value">AI Data Management (AIDM)</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Prepared for</span>
+        <span class="hero-meta-value">Matthew Jones &amp; Mark Brumbaugh</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Date</span>
+        <span class="hero-meta-value">April 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: WHAT WE DID -->
+  <section id="what-we-did">
+    <div class="section-inner two-col fade-in">
+      <div>
+        <div class="section-label">What We Did</div>
+        <h2 class="section-title">A Full Assessment of the <em>Real You</em> Project</h2>
+      </div>
+      <div>
+        <div class="art-divider"><div class="art-divider-line"></div><div class="art-divider-diamond"></div><div class="art-divider-line"></div></div>
+        <div class="section-body">
+          <p>Over the past 30 days, AIDM conducted a thorough assessment of the Real You platform — where it stands, what exists, and what it takes to build it right.</p>
+        </div>
+        <ul class="bullet-list" style="margin-top:1.5rem;">
+          <li><strong>IP transfer</strong> from the previous development team — accounts, credentials, code, and infrastructure</li>
+          <li><strong>Brand creation</strong> — visual identity, voice, and positioning for Real You as a consumer-facing product</li>
+          <li><strong>Digital presence planning</strong> — website prototype, content strategy, and go-to-market framework</li>
+          <li><strong>Technical scoping</strong> — a full product requirements document mapping every feature, pipeline stage, and integration</li>
+        </ul>
+        <p style="margin-top:1.5rem; font-size:0.95rem; color:var(--text-secondary);">The assessment phase is complete. What follows is a summary of findings, deliverables, and the path forward.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: DELIVERABLES -->
+  <section id="deliverables">
+    <div class="section-inner fade-in">
+      <div class="section-label">Assessment Deliverables</div>
+      <h2 class="section-title">What We Built</h2>
+      <p class="section-body">Each deliverable is complete and ready for your review.</p>
+
+      <div class="deliverable-grid">
+
+        <div class="deliverable-card">
+          <div class="deliverable-card-label">Deliverable 01</div>
+          <div class="deliverable-card-title">Brand Identity</div>
+          <div class="deliverable-card-desc">Logos, color system, typography, and tagline finalists — everything needed to establish Real You as a distinct, recognizable brand. The guide covers primary and secondary marks, color palettes for digital and print, and font pairings.</div>
+          <a class="deliverable-link" href="https://drive.google.com/file/d/1oQOv1pQeA5OkDqqRSSD-DjImZN0CK_-3/view?usp=sharing" target="_blank" rel="noopener">
+            View Brand Guide
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div class="deliverable-card">
+          <div class="deliverable-card-label">Deliverable 02</div>
+          <div class="deliverable-card-title">Website Prototype</div>
+          <div class="deliverable-card-desc">An interactive prototype of the public-facing Real You site. A working model you can click through — not static mockups. It reflects the brand identity and maps the user journey from first visit through signup.</div>
+          <a class="deliverable-link" href="https://real-you-prototype-v2.vercel.app/index.html" target="_blank" rel="noopener">
+            View Prototype
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div class="deliverable-card">
+          <div class="deliverable-card-label">Deliverable 03</div>
+          <div class="deliverable-card-title">Content &amp; Social Media Strategy</div>
+          <div class="deliverable-card-desc">A full go-to-market strategy covering audience targeting, content pillars, platform selection, posting cadence, and the Ohio 100 launch framework — the plan for building an audience before the product launches.</div>
+          <a class="deliverable-link" href="https://docs.google.com/document/d/1uQeXCiNK4XjEAJOFI9pcKQHYkEncD6z9cpDz8MjClaU/edit?usp=sharing" target="_blank" rel="noopener">
+            View Go-to-Market Plan
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div class="deliverable-card">
+          <div class="deliverable-card-label">Deliverable 04</div>
+          <div class="deliverable-card-title">Product Requirements Document</div>
+          <div class="deliverable-card-desc">The complete technical blueprint for the Real You platform — every feature, every pipeline stage, every integration point, documented and organized for the build phase.</div>
+          <a class="deliverable-link" href="https://docs.google.com/document/d/141NV15bUmzIzazHC8FYTR_0A8OWxeIhAvowz9kHFvvk/edit?usp=sharing" target="_blank" rel="noopener">
+            View PRD
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: IP TRANSFER -->
+  <section id="ip-transfer">
+    <div class="section-inner two-col fade-in">
+      <div>
+        <div class="section-label">IP Transfer</div>
+        <h2 class="section-title">Clean Handover,<br><em>Full Control</em></h2>
+      </div>
+      <div>
+        <div class="art-divider"><div class="art-divider-line"></div><div class="art-divider-diamond"></div><div class="art-divider-line"></div></div>
+        <div class="section-body">
+          <p>AIDM now holds all accounts, credentials, and infrastructure access for the Real You project. The transfer from the previous development team is complete.</p>
+        </div>
+        <div class="transfer-grid">
+          <div class="transfer-item">Domain registrations &amp; DNS</div>
+          <div class="transfer-item">Cloud hosting &amp; infrastructure</div>
+          <div class="transfer-item">API keys &amp; service credentials</div>
+          <div class="transfer-item">Source code repositories</div>
+          <div class="transfer-item">Design assets &amp; working files</div>
+        </div>
+        <div class="callout-box">
+          Everything is documented, organized, and under AIDM's management. <strong>There are no loose ends or shared access with prior parties.</strong> The build phase starts from a clean foundation.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: PROJECT OVERVIEW -->
+  <section id="project-overview">
+    <div class="section-inner fade-in">
+      <div class="section-label">Project Overview</div>
+      <h2 class="section-title">Here Is What We Are <em>Actually Building</em></h2>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items:start;" class="two-col-body">
+        <div class="section-body">
+          <p>Real You is a technically ambitious platform. The assessment confirmed that, and we want you to see the full picture clearly.</p>
+          <p>At its core, Real You runs a <strong>9-stage AI pipeline</strong> that guides users through a <strong>63-day neurocycle program</strong>. Each user receives personalized AI-generated video content. The platform includes a gifting economy, a community tier system, and a content engine that adapts to individual progress.</p>
+        </div>
+        <div class="section-body">
+          <p>One thing the assessment made clear: <strong>build and go-to-market must run in parallel.</strong></p>
+          <p>A great product with no audience is just a demo. That is why the content strategy and the technical build are designed to move at the same time — so Real You launches to people who are already waiting for it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SCOPE REVIEW -->
+  <section id="scope-review">
+    <div class="section-inner fade-in">
+      <div class="section-label">Scope Review</div>
+      <h2 class="section-title">What Is and Is Not <em>in the Build</em></h2>
+      <p class="section-body">Transparency matters. Here is exactly what AIDM's scope covers and where the boundaries are.</p>
+
+      <div class="scope-grid">
+        <div class="scope-col">
+          <div class="scope-col-header included">Included in Scope</div>
+          <ul class="scope-col-list included">
+            <li>Full V2 platform build</li>
+            <li>WordPress marketing site</li>
+            <li>Social media account setup</li>
+            <li>Scheduled content posting</li>
+            <li>AI-assisted article writing</li>
+            <li>SEO implementation</li>
+          </ul>
+        </div>
+        <div class="scope-col">
+          <div class="scope-col-header excluded">Not Included in Scope</div>
+          <ul class="scope-col-list excluded">
+            <li>Paid advertising</li>
+            <li>Influencer outreach and contracts</li>
+            <li>PR and media relations</li>
+            <li>Short-form video creation for social media</li>
+            <li>Community management at scale</li>
+            <li>Ohio 100 content kits</li>
+          </ul>
+        </div>
+      </div>
+      <p class="scope-note">For full details, refer to your service agreement.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: DECISIONS -->
+  <section id="decisions">
+    <div class="section-inner fade-in">
+      <div class="section-label">Decisions Needed</div>
+      <h2 class="section-title">Two Choices <em>Before We Build</em></h2>
+      <p class="section-body">Before development begins, we need two decisions. Both affect the brand guide, the website, and the trademark filing process.</p>
+
+      <div class="decision-cards">
+        <div class="decision-card">
+          <div class="decision-number">01</div>
+          <h3>Brand Domain</h3>
+          <p><span class="decision-highlight">RealYou.AI</span> or <span class="decision-highlight">MyFutureYou.com</span> — which is the primary brand? This determines the website URL, email addresses, social handles, and all marketing materials going forward. Both are available. Pick the one that feels right.</p>
+        </div>
+        <div class="decision-card">
+          <div class="decision-number">02</div>
+          <h3>Final Logo &amp; Tagline</h3>
+          <p>The brand guide includes finalists for both. Select your preferred logo mark and tagline so we can lock the brand guide, begin trademark filing, and carry a consistent identity into every deliverable from day one.</p>
+        </div>
+      </div>
+
+      <div class="callout-box" style="margin-top:1.5rem;">
+        Once these two decisions are made, <strong>the build begins.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: ROADMAP -->
+  <section id="roadmap">
+    <div class="section-inner fade-in">
+      <div class="section-label">Six Months to Beta</div>
+      <h2 class="section-title">The Build Plan</h2>
+      <p class="section-body">Not a promise — a plan, built on what we learned during the assessment.</p>
+
+      <div class="roadmap">
+        <div class="roadmap-phase">
+          <div class="roadmap-period">Months 1–2<br>Foundation</div>
+          <div>
+            <div class="roadmap-phase-title">Infrastructure &amp; Brand</div>
+            <div class="roadmap-phase-items">Core platform architecture and database design · User authentication and profile system · AI pipeline infrastructure (stages 1–3) · WordPress site live with initial content · Social media channels active, Ohio 100 outreach begins</div>
+          </div>
+        </div>
+        <div class="roadmap-phase">
+          <div class="roadmap-period">Months 3–4<br>Core Build</div>
+          <div>
+            <div class="roadmap-phase-title">Product &amp; Pipeline</div>
+            <div class="roadmap-phase-items">AI pipeline stages 4–9 development · Personalized video generation integration · Neurocycle program logic and content sequencing · Gifting economy framework · Content calendar in full production, audience building underway</div>
+          </div>
+        </div>
+        <div class="roadmap-phase">
+          <div class="roadmap-period">Month 5<br>Integration</div>
+          <div>
+            <div class="roadmap-phase-title">Polish &amp; Testing</div>
+            <div class="roadmap-phase-items">Community tier system · Full pipeline end-to-end testing · Beta user onboarding flow · Payment and subscription integration</div>
+          </div>
+        </div>
+        <div class="roadmap-phase">
+          <div class="roadmap-period">Month 6<br>Beta Launch</div>
+          <div>
+            <div class="roadmap-phase-title">Go Live</div>
+            <div class="roadmap-phase-items">Closed beta with selected users · Performance testing and optimization · Feedback collection and priority fixes · Public launch preparation</div>
+          </div>
+        </div>
+        <div class="roadmap-target">
+          <span>Target</span>
+          <strong>Beta Launch — July / August 2026</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: BEYOND V2 -->
+  <section id="beyond">
+    <div class="section-inner fade-in">
+      <div class="section-label">Beyond V2</div>
+      <h2 class="section-title">Five Expansion Modules <em>on the Horizon</em></h2>
+      <p class="section-body">The V2 platform is the foundation. Once it is stable and growing, Real You can expand into five additional modules — each scoped and priced independently based on platform traction.</p>
+
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-icon">🤝</div>
+          <div class="module-name">Community</div>
+          <div class="module-desc">Deeper peer connection, group neurocycles, and shared transformation milestones.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">📚</div>
+          <div class="module-name">Education</div>
+          <div class="module-desc">Courses, certifications, and guided learning paths built on the Real You framework.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">🌊</div>
+          <div class="module-name">Abundance</div>
+          <div class="module-desc">Financial wellness tools tied to the gifting economy model.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">💚</div>
+          <div class="module-name">Health</div>
+          <div class="module-desc">Physical wellness integration, habit tracking, and holistic health content.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">🏢</div>
+          <div class="module-name">Business</div>
+          <div class="module-desc">Enterprise applications, team-based neurocycles, and organizational development.</div>
+        </div>
+      </div>
+
+      <div class="callout-box">
+        Each module builds on the core platform. <strong>None require starting over.</strong> They are designed to grow with your audience.
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="closing-inner fade-in">
+      <div class="eyebrow">What Comes Next</div>
+      <h2>We Are Ready<br><em>When You Are</em></h2>
+      <p>The assessment is done. The deliverables are in your hands. The plan is clear.</p>
+      <p>AIDM is prepared to begin the build phase as soon as you have made your two decisions — brand domain and final logo and tagline. From there, we move forward together, month by month, toward a beta that Real You's first users will actually want to join.</p>
+      <p>If you have questions about anything in this document, reach out directly.</p>
+      <a class="closing-email" href="mailto:hello@aidatamanagement.com">hello@aidatamanagement.com</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 AI Data Management (AIDM) &nbsp;·&nbsp; Confidential — Prepared for Real You / BFF Network
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          observer.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
