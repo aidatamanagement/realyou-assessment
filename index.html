@@ -835,6 +835,25 @@
       margin-top: 0.1em;
     }
 
+    /* ── WHAT WE DID TWO-COL ── */
+    .what-we-did-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .what-we-did-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    .before-build-box {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: sticky;
+      top: 76px;
+    }
+
     /* ── DECORATIVE DIVIDER ── */
     .art-divider {
       display: flex;
@@ -863,7 +882,7 @@
       <a href="#project-overview" class="nav-link">Overview</a>
       <a href="#scope-review" class="nav-link">Scope</a>
       <a href="#roadmap" class="nav-link">Roadmap</a>
-      <a href="#beyond" class="nav-link">Beyond V2</a>
+      <a href="#beyond" class="nav-link">Future Projects</a>
     </div>
   </nav>
 
@@ -888,50 +907,58 @@
   <!-- SECTION 1: WHAT WE DID -->
   <section id="what-we-did" class="bg-cream">
     <div class="section-inner fade-in">
-      <div class="section-label">What We Did</div>
-      <h2 class="section-title">A Full Assessment of the <em>Real You</em> Project</h2>
-      <div class="section-body">
-        <p>Over the past 30 days, AIDM conducted a thorough assessment of the Real You platform — where it stands, what exists, and what it takes to build it right.</p>
-      </div>
-      <div class="did-grid">
-        <div class="did-card">
-          <div class="did-card-icon">&#x1F504;</div>
-          <div class="did-card-title">IP transfer</div>
-          <div class="did-card-desc">From the previous development team — accounts, credentials, code, and infrastructure</div>
-        </div>
-        <div class="did-card">
-          <div class="did-card-icon">&#x1F3A8;</div>
-          <div class="did-card-title">Brand creation</div>
-          <div class="did-card-desc">Visual identity, voice, and positioning for Real You as a consumer-facing product</div>
-        </div>
-        <div class="did-card">
-          <div class="did-card-icon">&#x1F310;</div>
-          <div class="did-card-title">Digital presence planning</div>
-          <div class="did-card-desc">Website prototype, content strategy, and go-to-market framework</div>
-        </div>
-        <div class="did-card">
-          <div class="did-card-icon">&#x1F4CB;</div>
-          <div class="did-card-title">Technical scoping</div>
-          <div class="did-card-desc">A full product requirements document mapping every feature, pipeline stage, and integration</div>
-        </div>
-      </div>
-      <p style="margin-top:1.5rem; font-size:0.95rem; color:var(--text-secondary); max-width:680px;">The assessment phase is complete. What follows is a summary of findings, deliverables, and the path forward.</p>
+      <div class="what-we-did-layout">
 
-      <div style="margin-top:2.5rem; max-width:680px;">
-        <div class="section-label" style="margin-bottom:1rem;">Before the Build Begins</div>
-        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1.5rem;">Two items need clarification before development starts. Both affect the brand guide, the website, and the trademark filing process.</p>
-        <div class="decision-cards">
-          <div class="decision-card">
-            <div class="decision-number">01</div>
-            <h3>Brand Domain</h3>
-            <p><span class="decision-highlight">RealYou.AI</span> or <span class="decision-highlight">MyFutureYou.com</span> — which is the primary brand? This determines the website URL, email addresses, social handles, and all marketing materials going forward.</p>
+        <!-- LEFT: assessment work -->
+        <div class="what-we-did-left">
+          <div class="section-label">What We Did</div>
+          <h2 class="section-title">A Full Assessment of the <em>Real You</em> Project</h2>
+          <div class="section-body">
+            <p>Over the past 30 days, AIDM conducted a thorough assessment of the Real You platform — where it stands, what exists, and what it takes to build it right.</p>
           </div>
-          <div class="decision-card">
-            <div class="decision-number">02</div>
-            <h3>Final Logo &amp; Tagline</h3>
-            <p>The brand guide includes finalists for both. Select your preferred logo mark and tagline so we can lock the brand guide, begin trademark filing, and carry a consistent identity into every deliverable from day one.</p>
+          <div class="did-grid">
+            <div class="did-card">
+              <div class="did-card-icon">&#x1F504;</div>
+              <div class="did-card-title">IP transfer</div>
+              <div class="did-card-desc">From the previous development team — accounts, credentials, code, and infrastructure</div>
+            </div>
+            <div class="did-card">
+              <div class="did-card-icon">&#x1F3A8;</div>
+              <div class="did-card-title">Brand creation</div>
+              <div class="did-card-desc">Visual identity, voice, and positioning for Real You as a consumer-facing product</div>
+            </div>
+            <div class="did-card">
+              <div class="did-card-icon">&#x1F310;</div>
+              <div class="did-card-title">Digital presence planning</div>
+              <div class="did-card-desc">Website prototype, content strategy, and go-to-market framework</div>
+            </div>
+            <div class="did-card">
+              <div class="did-card-icon">&#x1F4CB;</div>
+              <div class="did-card-title">Technical scoping</div>
+              <div class="did-card-desc">A full product requirements document mapping every feature, pipeline stage, and integration</div>
+            </div>
+          </div>
+          <p style="margin-top:1.5rem; font-size:0.95rem; color:var(--text-secondary);">The assessment phase is complete. What follows is a summary of findings, deliverables, and the path forward.</p>
+        </div>
+
+        <!-- RIGHT: before the build begins -->
+        <div class="what-we-did-right">
+          <div class="before-build-box">
+            <div class="section-label" style="margin-bottom:1rem;">Before the Build Begins</div>
+            <p style="font-size:0.93rem; color:var(--text-secondary); margin-bottom:1.5rem; line-height:1.7;">Two items need clarification before development starts. Both affect the brand guide, the website, and the trademark filing process.</p>
+            <div class="decision-card" style="margin-bottom:1rem;">
+              <div class="decision-number">01</div>
+              <h3>Brand Domain</h3>
+              <p><span class="decision-highlight">RealYou.AI</span> or <span class="decision-highlight">MyFutureYou.com</span> — which is the primary brand? This determines the website URL, email addresses, social handles, and all marketing materials going forward.</p>
+            </div>
+            <div class="decision-card">
+              <div class="decision-number">02</div>
+              <h3>Final Logo &amp; Tagline</h3>
+              <p>The brand guide includes finalists for both. Select your preferred logo mark and tagline so we can lock the brand guide, begin trademark filing, and carry a consistent identity into every deliverable from day one.</p>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1156,7 +1183,7 @@
   <!-- SECTION 8: BEYOND V2 -->
   <section id="beyond" class="bg-navy">
     <div class="section-inner fade-in">
-      <div class="section-label">Beyond V2</div>
+      <div class="section-label">Future Projects</div>
       <h2 class="section-title">Five Expansion Modules <em>on the Horizon</em></h2>
       <p class="section-body">The V2 platform is the foundation. Once it is stable and growing, Real You can expand into five additional modules — each scoped and priced independently based on platform traction.</p>
 
