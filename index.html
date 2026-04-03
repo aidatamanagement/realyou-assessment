@@ -871,6 +871,51 @@
       top: 76px;
     }
 
+    /* ── DISCUSSION CARDS ── */
+    .discussion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 760px) {
+      .discussion-grid { grid-template-columns: 1fr; }
+    }
+    .discussion-card {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .discussion-card-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--accent-cream);
+      line-height: 1;
+    }
+    .discussion-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+    .discussion-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .discussion-card-body p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.72;
+    }
+    .discussion-card-body p strong { color: var(--text-primary); }
+
     /* ── DECORATIVE DIVIDER ── */
     .art-divider {
       display: flex;
@@ -898,6 +943,7 @@
       <a href="#ip-transfer" class="nav-link">IP Transfer</a>
       <a href="#project-overview" class="nav-link">Overview</a>
       <a href="#scope-review" class="nav-link">Scope</a>
+      <a href="#discussion" class="nav-link">Discussion</a>
       <a href="#roadmap" class="nav-link">Roadmap</a>
       <a href="#beyond" class="nav-link">Future Projects</a>
     </div>
@@ -1006,7 +1052,7 @@
           <div class="deliverable-card-label">Deliverable 02</div>
           <div class="deliverable-card-title">Website Prototype</div>
           <div class="deliverable-card-desc">An interactive prototype of the public-facing Real You site. A working model you can click through — not static mockups. It reflects the brand identity and maps the user journey from first visit through signup.</div>
-          <a class="deliverable-link" href="https://real-you-prototype-v2.vercel.app/index.html" target="_blank" rel="noopener">
+          <a class="deliverable-link" href="https://real-you-prototype-v3.vercel.app/" target="_blank" rel="noopener">
             View Prototype
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -1156,8 +1202,43 @@
     </div>
   </section>
 
+  <!-- SECTION: DISCUSSION POINTS -->
+  <section id="discussion" class="bg-cream">
+    <div class="section-inner fade-in">
+      <div class="section-label">Discussion Points</div>
+      <h2 class="section-title">Two Topics to <em>Align On</em></h2>
+      <p class="section-body">Before the build begins, we want to raise two topics that will shape the product, the marketing, and the customer journey. These are not blockers — they are decisions that affect every other decision downstream.</p>
+
+      <div class="discussion-grid">
+
+        <div class="discussion-card">
+          <div class="discussion-card-num">01</div>
+          <h3 class="discussion-card-title">Brand Language: Neutral or Faith-Based?</h3>
+          <div class="discussion-card-body">
+            <p>Mark's recent message uses language that is clearly and intentionally faith-based — "Finished Work," "Kingdom Capital," "Stewards of Grace," "Creator." That language is powerful and authentic to the founders' worldview.</p>
+            <p>We noticed this sits alongside the Content &amp; Social Media Plan, which is written in fully secular, neuroscience-led language. Both approaches are valid — but they are not interchangeable, and the brand cannot speak in both voices at the same time.</p>
+            <p>This is a market size decision as much as a tone decision. Faith-based framing will resonate deeply with a specific community and may be the right place to launch. Neutral framing opens the full addressable market. Either way, all copy — the website, the social media plan, the onboarding experience, the ambassador language — will need to be consistent with whichever direction is chosen.</p>
+            <p><strong>Discussion point:</strong> Is Real You a faith-based platform, a secular platform, or something in between — and who is the primary audience at launch?</p>
+          </div>
+        </div>
+
+        <div class="discussion-card">
+          <div class="discussion-card-num">02</div>
+          <h3 class="discussion-card-title">Pricing: Has the Market Been Tested?</h3>
+          <div class="discussion-card-body">
+            <p>The core Real You experience is currently positioned at $97. The platform's stated mission is to reach people in burnout, identity loss, and survival mode. These are often the same people with the least financial flexibility.</p>
+            <p>We want to ask: has there been any research into whether the target audience can sustain a $97 spend? At this price point, storytelling and trust-building are not optional extras — they are the entire conversion strategy. People do not spend $97 on something they found five minutes ago.</p>
+            <p>A tiered pricing model is worth serious consideration. A lower entry point — a mini course at $39, a guide or PDF at $10, a free gifted experience through the Covenant Invite — gives people a way into the ecosystem before committing to the full product. The customer journey builds trust gradually, and each tier moves the person closer to the $97 experience.</p>
+            <p><strong>Discussion point:</strong> What can Real You offer at a lower price point, and how does that entry-level product connect people to the full platform experience?</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- SECTION 7: ROADMAP -->
-  <section id="roadmap" class="bg-cream">
+  <section id="roadmap" class="bg-navy">
     <div class="section-inner fade-in">
       <div class="section-label">Six Months to Beta</div>
       <h2 class="section-title">The Build Plan</h2>
@@ -1201,7 +1282,7 @@
   </section>
 
   <!-- SECTION 8: BEYOND V2 -->
-  <section id="beyond" class="bg-navy">
+  <section id="beyond" class="bg-cream">
     <div class="section-inner fade-in">
       <div class="section-label">Future Projects</div>
       <h2 class="section-title">Five Expansion Modules <em>on the Horizon</em></h2>
