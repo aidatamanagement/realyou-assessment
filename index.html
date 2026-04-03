@@ -63,9 +63,8 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(245, 240, 232, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: var(--accent-navy);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       padding: 0 2rem;
     }
     .nav-inner {
@@ -73,24 +72,21 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      height: 60px;
+      justify-content: center;
+      gap: 2.5rem;
+      height: 56px;
     }
-    .nav-logo {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .nav-meta {
+    .nav-link {
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: rgba(245, 240, 232, 0.65);
+      text-decoration: none;
+      transition: var(--transition);
+      white-space: nowrap;
     }
+    .nav-link:hover { color: #F5F0E8; }
 
     /* ── HERO ── */
     .hero {
@@ -174,6 +170,58 @@
       padding: 80px 2rem;
       border-bottom: 1px solid var(--border);
     }
+    section.bg-cream {
+      background: var(--bg);
+    }
+    section.bg-navy {
+      background: var(--accent-navy);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+    section.bg-navy .section-label { color: #FFB162; }
+    section.bg-navy .section-label::before { background: #FFB162; }
+    section.bg-navy .section-title { color: #F5F0E8; }
+    section.bg-navy .section-title em { color: #FFB162; }
+    section.bg-navy .section-body { color: rgba(245,240,232,0.75); }
+    section.bg-navy .section-body strong { color: #F5F0E8; }
+    section.bg-navy .art-divider-line { background: rgba(255,255,255,0.15); }
+    section.bg-navy .art-divider-diamond { background: #FFB162; }
+    section.bg-navy .bullet-list li { color: rgba(245,240,232,0.75); }
+    section.bg-navy .bullet-list li strong { color: #F5F0E8; }
+    section.bg-navy .bullet-list li::before { background: #FFB162; }
+    section.bg-navy .transfer-item { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); color: rgba(245,240,232,0.8); }
+    section.bg-navy .transfer-item::before { color: #FFB162; }
+    section.bg-navy .callout-box { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); border-left-color: #FFB162; color: rgba(245,240,232,0.8); }
+    section.bg-navy .callout-box strong { color: #F5F0E8; }
+    section.bg-navy .deliverable-card { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+    section.bg-navy .deliverable-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+    section.bg-navy .deliverable-card-label { color: rgba(245,240,232,0.45); }
+    section.bg-navy .deliverable-card-title { color: #F5F0E8; }
+    section.bg-navy .deliverable-card-desc { color: rgba(245,240,232,0.7); }
+    section.bg-navy .deliverable-link { color: #FFB162; }
+    section.bg-navy .deliverable-link:hover { color: #FFC880; }
+    section.bg-navy .scope-col { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+    section.bg-navy .scope-col-header.included { background: rgba(255,177,98,0.12); color: #FFB162; }
+    section.bg-navy .scope-col-header.excluded { background: rgba(255,255,255,0.05); color: rgba(245,240,232,0.5); }
+    section.bg-navy .scope-col-list li { color: rgba(245,240,232,0.75); border-bottom-color: rgba(255,255,255,0.08); }
+    section.bg-navy .scope-col-list.included li::before { color: #FFB162; }
+    section.bg-navy .scope-col-list.excluded li::before { color: rgba(245,240,232,0.3); }
+    section.bg-navy .scope-note { color: rgba(245,240,232,0.4); }
+    section.bg-navy .decision-card { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+    section.bg-navy .decision-number { color: rgba(255,255,255,0.15); }
+    section.bg-navy .decision-card h3 { color: #F5F0E8; }
+    section.bg-navy .decision-card p { color: rgba(245,240,232,0.75); }
+    section.bg-navy .decision-highlight { background: rgba(255,177,98,0.18); color: #FFB162; }
+    section.bg-navy .module-card { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+    section.bg-navy .module-card:hover { border-color: rgba(255,177,98,0.35); }
+    section.bg-navy .module-name { color: #F5F0E8; }
+    section.bg-navy .module-desc { color: rgba(245,240,232,0.55); }
+    section.bg-navy .roadmap { border-color: rgba(255,255,255,0.12); }
+    section.bg-navy .roadmap-phase { background: rgba(255,255,255,0.05); border-bottom-color: rgba(255,255,255,0.08); }
+    section.bg-navy .roadmap-phase:hover { background: rgba(255,255,255,0.09); }
+    section.bg-navy .roadmap-period { color: #FFB162; }
+    section.bg-navy .roadmap-phase-title { color: #F5F0E8; }
+    section.bg-navy .roadmap-phase-items { color: rgba(245,240,232,0.7); }
+    section.bg-navy p { color: rgba(245,240,232,0.75); }
     .section-inner {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -671,8 +719,14 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-logo">RealYou</a>
-      <span class="nav-meta">Assessment Findings &amp; Deliverables &nbsp;·&nbsp; April 2026</span>
+      <a href="#what-we-did" class="nav-link">What We Did</a>
+      <a href="#deliverables" class="nav-link">Deliverables</a>
+      <a href="#ip-transfer" class="nav-link">IP Transfer</a>
+      <a href="#project-overview" class="nav-link">Overview</a>
+      <a href="#scope-review" class="nav-link">Scope</a>
+      <a href="#decisions" class="nav-link">Decisions</a>
+      <a href="#roadmap" class="nav-link">Roadmap</a>
+      <a href="#beyond" class="nav-link">Beyond V2</a>
     </div>
   </nav>
 
@@ -688,11 +742,6 @@
       </div>
       <div class="hero-divider"></div>
       <div class="hero-meta-item">
-        <span class="hero-meta-label">Prepared for</span>
-        <span class="hero-meta-value">Matthew Jones &amp; Mark Brumbaugh</span>
-      </div>
-      <div class="hero-divider"></div>
-      <div class="hero-meta-item">
         <span class="hero-meta-label">Date</span>
         <span class="hero-meta-value">April 2026</span>
       </div>
@@ -700,7 +749,7 @@
   </div>
 
   <!-- SECTION 1: WHAT WE DID -->
-  <section id="what-we-did">
+  <section id="what-we-did" class="bg-cream">
     <div class="section-inner two-col fade-in">
       <div>
         <div class="section-label">What We Did</div>
@@ -723,7 +772,7 @@
   </section>
 
   <!-- SECTION 2: DELIVERABLES -->
-  <section id="deliverables">
+  <section id="deliverables" class="bg-navy">
     <div class="section-inner fade-in">
       <div class="section-label">Assessment Deliverables</div>
       <h2 class="section-title">What We Built</h2>
@@ -776,7 +825,7 @@
   </section>
 
   <!-- SECTION 3: IP TRANSFER -->
-  <section id="ip-transfer">
+  <section id="ip-transfer" class="bg-cream">
     <div class="section-inner two-col fade-in">
       <div>
         <div class="section-label">IP Transfer</div>
@@ -802,7 +851,7 @@
   </section>
 
   <!-- SECTION 4: PROJECT OVERVIEW -->
-  <section id="project-overview">
+  <section id="project-overview" class="bg-navy">
     <div class="section-inner fade-in">
       <div class="section-label">Project Overview</div>
       <h2 class="section-title">Here Is What We Are <em>Actually Building</em></h2>
@@ -820,7 +869,7 @@
   </section>
 
   <!-- SECTION 5: SCOPE REVIEW -->
-  <section id="scope-review">
+  <section id="scope-review" class="bg-cream">
     <div class="section-inner fade-in">
       <div class="section-label">Scope Review</div>
       <h2 class="section-title">What Is and Is Not <em>in the Build</em></h2>
@@ -855,7 +904,7 @@
   </section>
 
   <!-- SECTION 6: DECISIONS -->
-  <section id="decisions">
+  <section id="decisions" class="bg-navy">
     <div class="section-inner fade-in">
       <div class="section-label">Decisions Needed</div>
       <h2 class="section-title">Two Choices <em>Before We Build</em></h2>
@@ -881,7 +930,7 @@
   </section>
 
   <!-- SECTION 7: ROADMAP -->
-  <section id="roadmap">
+  <section id="roadmap" class="bg-cream">
     <div class="section-inner fade-in">
       <div class="section-label">Six Months to Beta</div>
       <h2 class="section-title">The Build Plan</h2>
@@ -925,7 +974,7 @@
   </section>
 
   <!-- SECTION 8: BEYOND V2 -->
-  <section id="beyond">
+  <section id="beyond" class="bg-navy">
     <div class="section-inner fade-in">
       <div class="section-label">Beyond V2</div>
       <h2 class="section-title">Five Expansion Modules <em>on the Horizon</em></h2>
